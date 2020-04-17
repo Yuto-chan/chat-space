@@ -1,3 +1,21 @@
+-# .side-bar
+-#   .side-bar__user-header
+-#     .side-bar__user-header__name
+-#       = current_user.name
+-#     .side-bar__user-header__edit
+-#       .side-bar__user-header__edit__left
+-#         = link_to new_group_path do
+-#           = icon('far', 'edit') 
+-#       .side-bar__user-header__edit__right
+-#         = link_to edit_user_path(current_user) do
+-#           = icon('fas', 'cog')
+-#   .side-bar__group-list
+-#     .side-bar__group-list__box
+-#       .side-bar__group-list__box__name
+-#         techcamp
+-#       .side-bar__group-list__box__message
+-#         まだメッセージがありません
+
 .side-bar
   .side-bar__user-header
     .side-bar__user-header__name
@@ -10,8 +28,10 @@
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog')
   .side-bar__group-list
-    .side-bar__group-list__box
-      .side-bar__group-list__box__name
-        techcamp
-      .side-bar__group-list__box__message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side-bar__group-list__box
+        = link_to '#' do
+          .side-bar__group-list__box__name
+            = group.name
+          .side-bar__group-list__box__message
+            まだメッセージがありません
