@@ -6,7 +6,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @group.messages.new(messages_params)
+    
+    @message = @group.messages.new(message_params)
+   
     if @message.save
       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else
@@ -18,7 +20,7 @@ class MessagesController < ApplicationController
 
   private 
   def message_params
-    params.require(:message).permit(:body, :image)
+    params.require(:message).permit(:body, :image).merge(user_id: current_user.id)
 #:contentの代わりに:bodyを入れた(設計でそー書いてあったので)
   end
 
