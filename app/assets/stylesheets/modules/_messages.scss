@@ -31,6 +31,10 @@
     height: calc(100vh - 100px);
     &__box {
       height: calc(20px + 15px + 5px + 11px + 40px);
+      a {
+        text-decoration: none;
+        color: white;
+      }
       &__name {
         font-size: 15px;
         margin: 0 20px 5px 20px;
@@ -64,8 +68,8 @@
         margin-top: 15px;
       }
     }
-    &__btn {
-      a {
+
+      .chat-main__group-info__btn {
       text-decoration: none;
       display: inline-block;
       color: #38aef0;
@@ -75,7 +79,7 @@
       line-height: 40px;
       margin-right: 40px;
       }
-    }
+    
   }
     &__btn {
       font-size: 16px;
@@ -86,6 +90,7 @@
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding-left: 40px;
+    overflow: scroll;
     &__user-info {
       display: flex;
       padding-top: 35px;
@@ -117,14 +122,14 @@
       line-height: 90px;
       margin-left: 40px;
       .form-text {
-        width: 90%;
+        width: 80%;
         height: 50px;
         padding-left: 10px;
       }
       &__image {
         position: absolute;
         top: 3px;
-        right: 98px;
+        right: 230px;
         margin-right: 10px;
       }
       #images {
@@ -138,6 +143,7 @@
       line-height: 50px;
       display: inline-block;
       margin-right: 40px;
+      margin-left: 40px;
       margin-top: 20px;
     }
   }

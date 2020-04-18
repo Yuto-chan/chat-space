@@ -1,0 +1,19 @@
+.chat-main__message-list__user-info
+  .chat-main__message-list__user-info__name
+    = message.user.name
+    .chat-main__message-list__user-info__day
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .chat-main__message-list__user-text
+    - if message.body.present?
+      %p.message-list__user-text
+        = message.body
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+
+  -# .chat-main__message-list__user-info
+  -#   .chat-main__message-list__user-info__name
+  -#     芳根京子
+  -#   .chat-main__message-list__user-info__day
+  -#     2020/04/15 15:51
+  -# .chat-main__message-list__user-text
+  -#   JUST HANG IN THERE
