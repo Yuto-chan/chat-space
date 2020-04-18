@@ -1,12 +1,15 @@
 .chat-main
   .chat-main__group-info
     .chat-main__group-info__name
-      test
-      %ul
-        %li<
-          member : masa
-    .chat-main__group-info__btn
-      = link_to "Edit", "＃"
+      .chat-main__group-info__group-name
+        = @group.name
+      .chat-main__group-info__group-name-list
+        Member :
+        - @group.users.each do |user|
+          = user.name
+    = link_to  edit_group_path(@group) do
+      .chat-main__group-info__btn
+        Edit
 
   .chat-main__message-list
     = render @messages

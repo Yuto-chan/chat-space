@@ -1,7 +1,6 @@
-.chat-main__message-list
-  .chat-main__message-list__user-info
-    .chat-main__message-list__user-info__name
-      = message.user.name
+.chat-main__message-list__user-info
+  .chat-main__message-list__user-info__name
+    = message.user.name
     .chat-main__message-list__user-info__day
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
   .chat-main__message-list__user-text
