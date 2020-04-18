@@ -16,13 +16,20 @@
     .chat-main__message-list__user-text
       JUST HANG IN THERE
   .chat-main__message-form
-    .chat-main__message-form__comment
-      %input.form-text{:name => "text", :value => "", :placeholder => "type a message" }
+    = form_for [@group, @message],html: {class: "chat-main__message-form__comment"} do |f|
+      = f.text_field :body, class: 'form-text',placeholder: 'type a message'
       .chat-main__message-form__comment__image
-        %label{class: "image"}
+        = f.label :image, class: 'image' do
           = icon("fas", "image")
-          %input{type: "file", id: "images"}
-    .chat-main__message-form__btn
-      %input.form-btn{:name => "Send", :type => "submit", :value => "Send"}
+          = f.file_field :image, class: 'hidden', id: "images"
+      = f.submit 'Send', class: 'form-btn'
 
- 
+  -# .chat-main__message-form
+  -#   .chat-main__message-form__comment
+  -#     %input.form-text{:name => "text", :value => "", :placeholder => "type a message" }
+  -#     .chat-main__message-form__comment__image
+  -#       %label{class: "image"}
+  -#         = icon("fas", "image")
+  -#         %input{type: "file", id: "images"}
+  -#   .chat-main__message-form__btn
+  -#     %input.form-btn{:name => "Send", :type => "submit", :value => "Send"}

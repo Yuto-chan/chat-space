@@ -117,14 +117,14 @@
       line-height: 90px;
       margin-left: 40px;
       .form-text {
-        width: 90%;
+        width: 80%;
         height: 50px;
         padding-left: 10px;
       }
       &__image {
         position: absolute;
         top: 3px;
-        right: 98px;
+        right: 230px;
         margin-right: 10px;
       }
       #images {
@@ -138,6 +138,7 @@
       line-height: 50px;
       display: inline-block;
       margin-right: 40px;
+      margin-left: 40px;
       margin-top: 20px;
     }
   }
