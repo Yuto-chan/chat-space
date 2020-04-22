@@ -2,16 +2,47 @@ $(function(){
     function buildHTML(message){
       if (message.image) {
         var html = 
+          `<div class="chat-main__message-list__user-info">
+            <div class="chat-main__message-list__user-info__name">
+              ${message.user_name}
+            </div>
+            <div class="chat-main__message-list__user-info_day">
+              ${message.created_at}
+            </div>
+            <div class="chat-main__message-list__user-info__user-text">
+              <p class="message-list__user-text">
+                ${message.body}
+                ${message.image}
+              </p>
+            </div>
+
+          </div>`
+        return html;
       } else {
         var html = 
-      }
-      return html
+          `<div class="chat-main__message-list__user-info">
+            <div class="chat-main__message-list__user-info__name">
+              ${message.user_name}
+            </div>
+            <div class="chat-main__message-list__user-info_day">
+              ${message.created_at}
+            </div>
+            <div class="chat-main__message-list__user-info__user-text">
+              <p class="message-list__user-text">
+                ${message.body}
+              </p>
+            </div>
+          </div>`
+        return html;
+      };
     }
   $('#new_message').on('submit', function(e){
-    e.preventDefault()
+  
+    e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    $ajax({
+  
+    $.ajax({
       url: url,
       type: 'POST',
       data: formData,
@@ -20,6 +51,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      
       var html = buildHTML(data)
     })
   });
