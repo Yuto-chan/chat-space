@@ -121,10 +121,12 @@
       position: relative;
       line-height: 90px;
       margin-left: 40px;
+      display: flex;
       .form-text {
         width: 80%;
         height: 50px;
         padding-left: 10px;
+        margin-top: 20px;
       }
       &__image {
         position: absolute;

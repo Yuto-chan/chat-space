@@ -5,9 +5,9 @@ $(function(){
           `<div class="chat-main__message-list__user-info">
             <div class="chat-main__message-list__user-info__name">
               ${message.user_name}
-            </div>
-            <div class="chat-main__message-list__user-info_day">
-              ${message.created_at}
+              <div class="chat-main__message-list__user-info_day">
+                ${message.created_at}
+              </div>
             </div>
             <div class="chat-main__message-list__user-info__user-text">
               <p class="message-list__user-text">
@@ -15,7 +15,6 @@ $(function(){
                 ${message.image}
               </p>
             </div>
-
           </div>`
         return html;
       } else {
@@ -23,9 +22,9 @@ $(function(){
           `<div class="chat-main__message-list__user-info">
             <div class="chat-main__message-list__user-info__name">
               ${message.user_name}
-            </div>
-            <div class="chat-main__message-list__user-info_day">
-              ${message.created_at}
+              <div class="chat-main__message-list__user-info_day">
+                ${message.created_at}
+              </div>
             </div>
             <div class="chat-main__message-list__user-info__user-text">
               <p class="message-list__user-text">
@@ -51,8 +50,11 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      
       var html = buildHTML(data)
+      $('.chat-main__message-list').append(html);
+      $('form')[0].reset();
+      // ⬆️フォームを空にしないとどーなるん？
+      $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
     })
   });
 });
