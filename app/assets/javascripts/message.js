@@ -50,6 +50,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      $('.form-btn').prop( 'disabled', false)
       var html = buildHTML(data)
       $('.chat-main__message-list').append(html);
       $('form')[0].reset();
