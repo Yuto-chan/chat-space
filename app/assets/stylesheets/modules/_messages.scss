@@ -92,10 +92,10 @@
     padding-left: 40px;
     overflow: scroll;
     &__user-info {
-      display: flex;
       padding-top: 35px;
       margin-bottom: 12px;
       &__name {
+        display: flex;
         color: #333333;
         font-size: 16px;
       }
